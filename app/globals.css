@@ -2,32 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  .montserrat {
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  .inter {
+    font-family: 'Inter', sans-serif;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  @apply 
+    py-20
+    px-6
+    w-full
+    max-w-6xl
+    mx-auto
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply
+    capitalize
+    montserrat
+}
+
+p {
+  @apply
+    inter
+    text-lg
+}
+
+.button {
+  @apply 
+    text-lg
+    font-semibold 
+    capitalize
+    py-3
+    px-6
+    rounded
+    translate-y-[0px] 
+    transition-all
+    duration-300 
+    ease-in-out;
+}
+
+.button:hover {
+  @apply
+    translate-y-[-3px] 
+    transition-all 
+    duration-300 
+    ease-in-out
+    shadow-md
+    cursor-pointer
+}
+
+.light-blue-button {
+  @apply
+    bg-ccBlue1
+    text-ccBlue2
+}
+
+.blue-button {
+  @apply
+    bg-ccBlue2
+    text-white 
+}
+
+.blue-button-2 {
+  @apply
+    bg-ccBlue3
+    text-white
+}
+
+@media (min-width: 450px) {
+  .container {
+    @apply 
+      px-10 
   }
 }
